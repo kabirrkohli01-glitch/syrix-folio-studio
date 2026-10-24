@@ -45,6 +45,10 @@ npm run test:e2e                    # end-to-end tests against the built app
 set FOLIO_E2E_OFFLINE=1 && npm run test:e2e   # skip tests that call a model
 ```
 
+## Development history
+
+Developed in a private repository — 5 commits, October 2026 — and published here as a curated snapshot. The working history stays private because it contains local configuration from development.
+
 ---
 
 © 2026 Kabirr Kohli. All rights reserved. Published for viewing; no licence is granted to copy, modify or redistribute.
