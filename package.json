@@ -1,0 +1,83 @@
+{
+  "name": "syrix-folio",
+  "productName": "SYRIX Folio",
+  "version": "1.0.0",
+  "description": "SYRIX Folio — a writing studio with a document editor, voice-aware humanizer, writing-style profiles and the SYRIX assistant.",
+  "author": "Kabirr Kohli",
+  "license": "UNLICENSED",
+  "private": true,
+  "type": "module",
+  "main": "dist/main/main.js",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "start": "node scripts/build.mjs && electron .",
+    "dev": "node scripts/build.mjs --watch",
+    "test:e2e": "node scripts/build.mjs && node --test --test-concurrency=1 \"tests/e2e/*.test.mjs\"",
+    "bench:humanizer": "node scripts/bench-humanizer.mjs",
+    "dist": "node scripts/build.mjs && electron-builder --win nsis portable",
+    "dist:dir": "node scripts/build.mjs && electron-builder --win --dir"
+  },
+  "build": {
+    "appId": "com.syrix.folio",
+    "productName": "SYRIX Folio",
+    "copyright": "Made by Kabirr Kohli",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "assets/**/*",
+      "package.json"
+    ],
+    "asarUnpack": [
+      "node_modules/tesseract.js/**",
+      "node_modules/tesseract.js-core/**",
+      "node_modules/onnxruntime-node/**",
+      "node_modules/onnxruntime-common/**"
+    ],
+    "win": {
+      "icon": "assets/icon.ico",
+      "target": [
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "shortcutName": "SYRIX Folio"
+    },
+    "portable": {
+      "artifactName": "SYRIX-Folio-${version}-portable.exe"
+    },
+    "npmRebuild": false
+  },
+  "dependencies": {
+    "@huggingface/transformers": "^4.3.1",
+    "diff": "^9.0.0",
+    "docx": "^9.12.0",
+    "mammoth": "^1.13.0",
+    "marked": "^18.1.1",
+    "pdfjs-dist": "^6.4.299",
+    "tesseract.js": "^7.0.0",
+    "turndown": "^7.2.4"
+  },
+  "devDependencies": {
+    "@fontsource/inter": "^5.3.0",
+    "@fontsource/jetbrains-mono": "^5.3.0",
+    "@fontsource/source-serif-4": "^5.3.1",
+    "@tiptap/core": "^3.32.0",
+    "@tiptap/extension-text-align": "^3.32.0",
+    "@tiptap/extensions": "^3.32.0",
+    "@tiptap/pm": "^3.32.0",
+    "@tiptap/react": "^3.32.0",
+    "@tiptap/starter-kit": "^3.32.0",
+    "dompurify": "^3.4.17",
+    "electron": "^44.9.0",
+    "electron-builder": "^26.15.3",
+    "esbuild": "^0.28.2",
+    "lucide-react": "^1.59.0",
+    "playwright": "^1.64.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  }
+}

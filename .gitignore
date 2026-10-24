@@ -1,0 +1,21 @@
+# Dependencies and build output
+node_modules/
+dist/
+release/
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+
+# Test and probe output
+test-results/
+*.log
+_probe_*.mjs
+
+# OS
+Thumbs.db
+desktop.ini
+.DS_Store
